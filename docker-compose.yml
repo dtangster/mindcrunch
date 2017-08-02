@@ -1,0 +1,32 @@
+version: '2'
+services:
+  ui_build:
+    hostname: ui_build
+    build:
+      context: ./mindcrunch
+      dockerfile: docker/ui_build/Dockerfile
+    volumes:
+    - ./mindcrunch/ui:/ui
+  backend:
+    depends_on:
+    - ui_build
+    - postgres
+    hostname: backend
+    build:
+      context: ./mindcrunch
+      dockerfile: docker/backend/Dockerfile
+    ports:
+    - 80:4000
+    volumes:
+    - ./mindcrunch/ui/dist:/mindcrunch/ui
+  postgres:
+    hostname: postgres
+    build:
+      context: ./mindcrunch
+      dockerfile: docker/postgres/Dockerfile
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=mindcrunch
+    volumes:
+    - /mindcrunch/postgresql:/var/lib/postgresql
