@@ -7,14 +7,14 @@ services:
       dockerfile: docker/ui_build/Dockerfile
     volumes:
     - ./mindcrunch/ui:/ui
-  backend:
+  phoenix:
     depends_on:
     - ui_build
     - postgres
-    hostname: backend
+    hostname: phoenix
     build:
       context: ./mindcrunch
-      dockerfile: docker/backend/Dockerfile
+      dockerfile: docker/phoenix/Dockerfile
     ports:
     - 80:4000
     volumes:
