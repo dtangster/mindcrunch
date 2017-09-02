@@ -1,5 +1,7 @@
 version: '2'
+
 services:
+
   ui_build:
     hostname: ui_build
     build:
@@ -7,10 +9,11 @@ services:
       dockerfile: docker/ui_build/Dockerfile
     volumes:
     - ./mindcrunch/ui:/ui
+
   phoenix:
     depends_on:
     - ui_build
-    - postgres
+    - tarantool
     hostname: phoenix
     build:
       context: ./mindcrunch
@@ -19,14 +22,14 @@ services:
     - 80:4000
     volumes:
     - ./mindcrunch/ui/dist:/mindcrunch/ui
-  postgres:
-    hostname: postgres
+
+  tarantool:
     build:
       context: ./mindcrunch
-      dockerfile: docker/postgres/Dockerfile
+      dockerfile: docker/tarantool/Dockerfile
+    hostname: tarantool
+    ports:
+    - 3301:3301
     environment:
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=postgres
-    - POSTGRES_DB=mindcrunch
-    volumes:
-    - /mindcrunch/postgresql:/var/lib/postgresql
+    - TARANTOOL_USER_NAME=tarantool_client
+    - TARANTOOL_USER_PASSWORD=password
