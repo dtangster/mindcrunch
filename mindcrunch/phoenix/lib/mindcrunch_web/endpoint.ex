@@ -14,6 +14,8 @@ defmodule MindcrunchWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
   end
 
@@ -34,7 +36,7 @@ defmodule MindcrunchWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_mindcrunch_key",
-    signing_salt: "s1pYUTsq"
+    signing_salt: "hAQN1uWG"
 
   plug MindcrunchWeb.Router
 

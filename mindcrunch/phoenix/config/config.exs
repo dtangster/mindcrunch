@@ -8,8 +8,8 @@ use Mix.Config
 # Configures the endpoint
 config :mindcrunch, MindcrunchWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "0LNjNMqK+2yYleX1Y/v32pNdMtLamk0Aj1UuWpJm+buHb2c6pWrBidgOELBz2j7T",
-  render_errors: [view: MindcrunchWeb.ErrorView, accepts: ~w(json)],
+  secret_key_base: "ewn7GvEivX6yiwoAKCBgCRTsT7KPct3OdKoh9ZD3hKdPwOd+uYQe09wqq/O9ckkj",
+  render_errors: [view: MindcrunchWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Mindcrunch.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

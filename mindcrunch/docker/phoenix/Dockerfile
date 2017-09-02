@@ -2,9 +2,9 @@ FROM elixir:alpine
 
 RUN mix local.hex --force && \
     mix local.rebar --force && \
-    mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+    mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 
-COPY phoenix /mindcrunch
+COPY ./phoenix /mindcrunch
 WORKDIR /mindcrunch
 RUN mix deps.get --force
 
