@@ -5,15 +5,11 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
-config :mindcrunch,
-  ecto_repos: [Mindcrunch.Repo]
-
 # Configures the endpoint
 config :mindcrunch, MindcrunchWeb.Endpoint,
-  url: [host: "postgres"],
-  secret_key_base: "sqilktN3iU7Qg8IeUeV7GfRja1m41hD1jXqwn6kTLhNNCbJuenBdPbH3mc048djY",
-  render_errors: [view: MindcrunchWeb.ErrorView, accepts: ~w(html json)],
+  url: [host: "localhost"],
+  secret_key_base: "0LNjNMqK+2yYleX1Y/v32pNdMtLamk0Aj1UuWpJm+buHb2c6pWrBidgOELBz2j7T",
+  render_errors: [view: MindcrunchWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Mindcrunch.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

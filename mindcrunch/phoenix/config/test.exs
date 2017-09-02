@@ -8,12 +8,3 @@ config :mindcrunch, MindcrunchWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :mindcrunch, Mindcrunch.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "mindcrunch_test",
-  hostname: "postgres",
-  pool: Ecto.Adapters.SQL.Sandbox
