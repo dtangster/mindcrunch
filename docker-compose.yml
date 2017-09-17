@@ -23,7 +23,8 @@ services:
     ports:
     - 80:4000
     volumes:
-    - ./mindcrunch/ui/dist:/mindcrunch/ui
+    - ./mindcrunch/ui/dist:/mindcrunch/priv/static
+    - ./mindcrunch/ui/dist/templates:/mindcrunch/lib/mindcrunch_web/templates/layout
 
   tarantool:
     build:

@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'src/index.html', to: 'index.html' },
+      { from: 'src/templates/app.html.eex', to: 'templates/app.html.eex' },
     ])
   ]
 }
