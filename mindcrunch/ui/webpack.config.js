@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/js/index.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'js/mindcrunch_bundle.js'
+    filename: 'js/bundle.js'
   },
   module: {
     rules: [

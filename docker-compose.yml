@@ -7,6 +7,8 @@ services:
     build:
       context: ./mindcrunch
       dockerfile: docker/ui_build/Dockerfile
+    ports:
+    - 8080:8080
     volumes:
     - ./mindcrunch/ui:/ui
 

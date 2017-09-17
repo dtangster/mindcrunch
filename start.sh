@@ -1,4 +1,3 @@
 #!/bin/bash
 
-docker-compose build --force-rm
-docker-compose up
+docker-compose up --build --abort-on-container-exit
